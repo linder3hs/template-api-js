@@ -23,10 +23,14 @@ model User {
 }
 
 model Character {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int       @id @default(autoincrement())
+  name       String
+  date_birth DateTime?
+  image      String?
+  weight     Float?
+  history    String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
 
   @@map("characters")
 }
