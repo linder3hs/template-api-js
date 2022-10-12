@@ -1,11 +1,22 @@
 # Examen semana 8
 
+Requirements
+
+- [ ] Crear un nuevo repositorio llamado `examen-8`
+- [ ] Ajuntar fotos de los ejercicios en el README.md
+- [ ] Usar una base de datos Postgres, MySQL o MongoDB
+- [ ] Codigo **ORDENADO** y **LIMPIO** usando buenas practicas
+
+Rules
+
+1. Se puede trabajar en parejas o individualmente
+2. El examen se debe entregar el día **viernes 14 de octubre** antes de las 12:30 pm
+
 ## Ejercicio 1
 
 Crear un API sobre una lista de musica donde se pueda hacer lo siguiente.
 
-* Crear canciones con los siguientes campos
-* /api/v1/songs => POST
+- Crear canciones con los siguientes campos `/api/v1/songs => POST`
 
 ```json
 {
@@ -19,18 +30,15 @@ Crear un API sobre una lista de musica donde se pueda hacer lo siguiente.
 }
 ```
 
-* Leer todas las canciones
-* /api/v1/songs => GET
+- Leer todas las canciones `/api/v1/songs => GET`
 
-* Leer una cancion por id
-* /api/v1/songs/:id => GET
+- Leer una cancion por id `/api/v1/songs/:id => GET`
   
 ## Ejercicio 2
 
 A nuestra API de canciones vamos agregar un registro y login de usuarios.
 
-* Crear un usuario con los siguientes campos
-* /api/v1/users => POST
+- Crear un usuario con los siguientes campos `/api/v1/users => POST`
 
 ```json
 {
@@ -41,8 +49,7 @@ A nuestra API de canciones vamos agregar un registro y login de usuarios.
 }
 ```
 
-* Login de usuario
-`/api/v1/users/login => POST`
+- Login de usuario `/api/v1/users/login => POST`
 
 ```json
 {
@@ -55,7 +62,7 @@ A nuestra API de canciones vamos agregar un registro y login de usuarios.
 
 Vamos a relacionar nuestros usuarios con las canciones que crean, es decir vamos a crear un play list de canciones.
 
-* Crear una playlist con los siguientes campos
+- Crear una playlist con los siguientes campos
 
 ```json
 {
