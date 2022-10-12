@@ -1,117 +1,86 @@
-# CHALLENGE BACKEND - NodeJs 🚀
+# Examen semana 8
 
-## Objetivo
+## Ejercicio 1
 
-Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los personajes que lo componen y entender en qué películas estos participaron. Por otro lado, deberá exponer la información para que cualquier frontend pueda consumirla.
+Crear un API sobre una lista de musica donde se pueda hacer lo siguiente.
 
-👉 Utilizar NodeJs y Express.
+* Crear canciones con los siguientes campos
+* /api/v1/songs => POST
 
-👉 No es necesario armar el Frontend.
+```json
+{
+  "id": 1,
+  "name": "Cancion 1",
+  "artist": "Artista 1",
+  "album": "Album 1",
+  "year": 2020,
+  "genre": "Rock",
+  "duration": 120
+}
+```
 
-👉 Las rutas deberán seguir el patrón REST.
+* Leer todas las canciones
+* /api/v1/songs => GET
 
-👉 Utilizar la librería Prisma.
+* Leer una cancion por id
+* /api/v1/songs/:id => GET
+  
+## Ejercicio 2
 
-⚠️ ¡No es indispensable hacer todo!
-Mientras más completes, mayor puntaje obtendrás, pero puedes enviar la app hasta el estadío que la tengas en base a tu conocimiento actual. Recuerda que el objetivo del challenge es entender tu nivel de conocimiento actual.
+A nuestra API de canciones vamos agregar un registro y login de usuarios.
 
-## Requerimientos técnicos
+* Crear un usuario con los siguientes campos
+* /api/v1/users => POST
 
-**1. Modelado de Base de Datos**
+```json
+{
+  "id": 1,
+  "name": "Usuario 1",
+  "email": "email@gmail.com",
+  "password": "123456"
+}
+```
 
-- Personaje: deberá tener
-  - Imagen.
-  - Nombre.
-  - Edad.
-  - Peso.
-  - Historia.
-  - Películas o series asociadas.
-- Película o Serie: deberá tener,
-  - Imagen.
-  - Título.
-  - Fecha de creación.
-  - Calificación (del 1 al 5).
-  - Personajes asociados.
-- Género: deberá tener,
-  - Nombre.
-  - Imagen.
-  - Películas o series asociadas.
+* Login de usuario
+`/api/v1/users/login => POST`
 
-**2. Autenticación de Usuarios**
+```json
+{
+  "email": "email@gmail.com",
+  "password": "123456"
+}
+```
 
-Para realizar peticiones a los endpoints subsiguientes el usuario deberá contar con un token que obtendrá al autenticarse. Para ello, deberán desarrollarse los endpoints de registro y login, que permitan obtener el token.
+## Ejercicio 3
 
-Los endpoints encargados de la autenticación deberán ser:
+Vamos a relacionar nuestros usuarios con las canciones que crean, es decir vamos a crear un play list de canciones.
 
-- /auth/login
-- /auth/register
+* Crear una playlist con los siguientes campos
 
-**3. Listado de Personajes**
-
-El listado deberá mostrar:
-
-- Imagen.
-- Nombre.
-
-El endpoint deberá ser:
-
-- /characters
-
-**4. Creación, Edición y Eliminación de Personajes (CRUD)**
-
-Deberán existir las operaciones básicas de creación, edición y eliminación de personajes.
-
-**5. Detalle de Personaje**
-
-En el detalle deberán listarse todos los atributos del personaje, como así también sus películas o series relacionadas.
-
-**6. Búsqueda de Personajes**
-
-Deberá permitir buscar por nombre, y filtrar por edad, peso o películas/series en las que participó. Para especificar el término de búsqueda o filtros se deberán enviar como parámetros de query:
-
-- GET /characters?name=nombre
-- GET /characters?age=edad
-- GET /characters?movies=idMovie
-
-**7. Listado de Películas**
-
-Deberá mostrar solamente los campos imagen, título y fecha de creación.
-
-El endpoint deberá ser:
-
-- GET /movies
-
-**8. Detalle de Película / Serie con sus personajes**
-
-Devolverá todos los campos de la película o serie junto a los personajes asociados a la misma
-
-**9. Creación, Edición y Eliminación de Película / Serie**
-
-Deberán existir las operaciones básicas de creación, edición y eliminación de películas o series.
-
-**10. Búsqueda de Películas o Series**
-
-Deberá permitir buscar por título, y filtrar por género. Además, permitir ordenar los resultados por fecha de creación de forma ascendiente o descendiente.
-
-El término de búsqueda, filtro u ordenación se deberán especificar como parámetros de query:
-
-- GET /movies?name=nombre
-- GET /movies?gender=idGenero
-- GET /movies?order=ASC | DESC
-
-**11. Envío de emails**
-
-Al registrarse en el sitio, el usuario deberá recibir un email de bienvenida. Es recomendable, la utilización de algún servicio de terceros como SendGrid.
-
-## Documentación
-
-Es deseable documentar los endpoints utilizando alguna herramienta como Postman o Swagger.
-
-## Tests
-
-De forma *opcional*, se podrán agregar tests de los diferentes endpoints de la APP, verificando posibles escenarios de error:
-
-- Campos faltantes o con un formato inválido en BODY de las peticiones
-- Acceso a recursos inexistentes en endpoints de detalle
-
-Los tests pueden realizarse utilizando Mocha + Chai.
+```json
+{
+  "id": 1,
+  "name": "Playlist 1",
+  "userId": 1,
+  "songs": [
+    {
+      "id": 1,
+      "name": "Cancion 1",
+      "artist": "Artista 1",
+      "album": "Album 1",
+      "year": 2020,
+      "genre": "Rock",
+      "duration": 120
+    },
+    {
+      "id": 2,
+      "name": "Cancion 2",
+      "artist": "Artista 2",
+      "album": "Album 2",
+      "year": 2020,
+      "genre": "Rock",
+      "duration": 120
+    }
+  ]
+}
+```
